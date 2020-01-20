@@ -21,9 +21,10 @@ public class MallSecurityConfig extends SecurityConfig {
     @Autowired
     private UmsAdminService adminService;
 
+    @Override
     @Bean
     public UserDetailsService userDetailsService() {
-        //获取登录用户信息
+        // 获取登录用户信息
         return username -> adminService.loadUserByUsername(username);
     }
 }
